@@ -34,8 +34,13 @@ function myPopFunction(array) {
  * @returns {boolean} returns true or false if the searchElement is found in the array.
  */
 function myIncludesFunction(array, searchElement) {
-
+  if (array.indexOf(searchElement) !== -1) {
+    return true;
+  } else {
+    return false;
+  }
 }
+// console.log(myIncludesFunction(["fire", "water", "earth", "air"], "earth"));
 
 /**
  * Return the first index in an array where a specified value is found. Do not use the indexOf method.
