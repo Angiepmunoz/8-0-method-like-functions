@@ -83,11 +83,11 @@ function myJoinFunction(array, separator) {
 let result = '';
   for (let i = 0; i < array.length; i++) {
     result += array[i]
-      if (separator === undefined) {
+      if (i !== array.length - 1 && separator === undefined) {
         result += ","
-    }
-    if (!!separator) {
-      result += separator
+      }
+      if (i !== array.length - 1 && !!separator) {
+        result += separator
     }
       }
   return result
