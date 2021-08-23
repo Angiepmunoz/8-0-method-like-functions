@@ -6,7 +6,7 @@
  */
 
 function myPushFunction(array, element) {
-  array[array.length] = element
+array[array.length] = element
   return array.length
 }
 
@@ -17,14 +17,13 @@ function myPushFunction(array, element) {
  * @returns {number} the new length of the array .
  */
 function myPopFunction(array, element) {
-  if(!array.length) {
-    return undefined
-  }
-  let last = array[array.length - 1]
-  array.length = array.length - 1
-  return last
-  
+if(!array.length) {
+  return undefined
 }
+let last = array[array.length - 1]
+  array.length = array.length - 1
+    return last
+  }
 
 /**
  * Determine whether an array includes a specific value within its entries. Do not use the includes method.
@@ -53,9 +52,9 @@ function myIndexOfFunction(array, searchElement) {
 for (let i = 0; i < array.length; i++){
   if(array[i] === searchElement){
      return i
-   }
-}
-return - 1;
+    }
+  }
+    return - 1;
 }
 
 /**
@@ -66,11 +65,11 @@ return - 1;
  * @returns {Array[*]} returns a new array containing the extracted elements.
  */
 function mySliceFunction(array, startIdx = 0, endIdx = array.length) {
-  let arr = [];
+let arr = [];
  for (let i = startIdx; i < endIdx; i++) {
   let element = array[i]
-  myPushFunction(arr, element)
- }
+myPushFunction(arr, element)
+}
  return arr
 }
 
@@ -81,7 +80,17 @@ function mySliceFunction(array, startIdx = 0, endIdx = array.length) {
  * @returns {string} returns a new array containing the extracted elements
  */
 function myJoinFunction(array, separator) {
-  
+let result = '';
+  for (let i = 0; i < array.length; i++) {
+    result += array[i]
+      if (separator === undefined) {
+        result += ","
+    }
+    if (!!separator) {
+      result += separator
+    }
+      }
+  return result
 }
 
 /**
@@ -89,7 +98,16 @@ function myJoinFunction(array, separator) {
  * @param {Array[*]} array - an array of with any kind of elements
  * @returns {Array[*]} returns the array with the elements reversed.
  */
-function myReverseFunction() {}
+function myReverseFunction(array) {
+  arr = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    myPushFunction(arr, array[i])
+  }
+  for (let i = 0; i < arr.length; i++) {
+    array[i] = arr[i]
+  }
+  return array
+}
 
 /**
  * Returns an array with one or more elements added to the front of the array followed by the original elements. Do not use the unshift method.
@@ -97,7 +115,9 @@ function myReverseFunction() {}
  * @param {*} newElement - an element of any type to add to the front of the array.
  * @returns {number} returns the new length of the array.
  */
-function myUnshiftFunction() {}
+function myUnshiftFunction(array, newElement) {
+
+}
 
 
 
