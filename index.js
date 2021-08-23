@@ -31,22 +31,15 @@ function myPushFunction(arr) {
  * @returns {number} the element that was removed
  */
 function myPopFunction(arr) {
-  if (!arr.length){
+  if (!arr.length){//check if there are values
     return undefined
   }
   let len = 0
-  for (let item of arr){
+  for (let item of arr){//length
     len++
   }
-  // for (let i = 0; i < len-1; i++){
-  //   newArr[i] = arr[i]
-  // }
-  let result = arr[len-1]
-  // console.log(result, arr, newArr)
-  // console.log(arr.length)
-  // arr = newArr
-  // console.log(arr.length)
-  arr.length = arr.length -1
+  let result = arr[len-1] //track last item
+  arr.length = arr.length -1 //remove last index of arr
   return result
 }
 
@@ -58,11 +51,11 @@ function myPopFunction(arr) {
  */
 function myIncludesFunction(array, searchElement, start = 0) {
   let flag = false
-  if (start< 0 ){
+  if (start< 0 ){ //check for negative start, and adjust accordingly
     start = array.length + start
   }
   for (let i=start ;i <  array.length; i++){
-    if (array[i] === searchElement){
+    if (array[i] === searchElement){//trigger flag if item found, could also just return here as well to break loop
       flag = true
     }
   }
@@ -77,7 +70,7 @@ function myIncludesFunction(array, searchElement, start = 0) {
  */
 function myIndexOfFunction(array, searchElement, start =0) {
   let result = -1
-  if (start < 0 ){
+  if (start < 0 ){//same as above
     start = array.length + start
   }
   for (let i = start ;i <  array.length; i++){
@@ -97,16 +90,16 @@ function myIndexOfFunction(array, searchElement, start =0) {
  */
 function mySliceFunction(array, start=0, end = array.length) {
   let newArr = []
-  if (start < 0 ){
+  if (start < 0 ){//adjustments for start
     start = array.length + start
   }
-  if (end < 0 ){
+  if (end < 0 ){//adjustments for end
     end = array.length + end
   }
-  if (end > array.length){
+  if (end > array.length){//check if end is too large
     end = array.length
   }
-  for (let i = start; i < end; i++){
+  for (let i = start; i < end; i++){//adding to new array
     myPushFunction(newArr, array[i])
   }
   return newArr
@@ -119,11 +112,11 @@ function mySliceFunction(array, start=0, end = array.length) {
  * @returns {string} returns a new array containing the extracted elements
  */
 function myJoinFunction(array, seperator = ',') {
-  if (!array.length){
+  if (!array.length){//empty array case
     return ''
   }
   let string = `${array[0]}`
-  for (let i = 1; i< array.length; i++){
+  for (let i = 1; i< array.length; i++){//add to string
     string += seperator + array[i]
   }
   return string
@@ -143,7 +136,7 @@ function myReverseFunction(array) {
   //   array[i] = newArr[i]
   // }
   newArr = mySliceFunction(array)
-  for (let i =newArr.length-1; i >= 0; i--){
+  for (let i =newArr.length-1; i >= 0; i--){//use slice copy to mutate original
     j = array.length-1 -i
     array[j] = newArr[i]
   }
@@ -158,13 +151,13 @@ function myReverseFunction(array) {
  */
 function myUnshiftFunction(array) {
   newArr = []
-  for (let i = 1; i < arguments.length; i++){
+  for (let i = 1; i < arguments.length; i++){//adding arguements first to new array
     myPushFunction(newArr, arguments[i])
   }
-  for (let i = 0; i < array.length; i++){
+  for (let i = 0; i < array.length; i++){//add the array elementst to new array
     myPushFunction(newArr, array[i])
   }
-  for (let i = 0; i < newArr.length; i++){
+  for (let i = 0; i < newArr.length; i++){//reassign orignal array
     array[i] = newArr[i]
   }
   return array.length
