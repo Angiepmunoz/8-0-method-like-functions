@@ -5,14 +5,27 @@
  * @returns {number} the new length of the array.
  */
 
-function myPushFunction() {}
+function myPushFunction(array, newElement) {
+  array[array.length] = newElement
+  console.log(array);
+  return array.length;
+}
+// console.log(myPushFunction(["module", "one", "is", "finally", "over"], "yas"))
 
 /**
  * Removes the last element of the array and returns the removed element or undefined if the array is empty. Do not use the pop method.
  * @param {Array[]} array - an array of with any kind of elements.
  * @returns {*} the removed element of the array.
  */
-function myPopFunction() {}
+function myPopFunction(array) {
+  if (array.length === 0) {
+    return undefined;
+  }
+  let lastElement = array[array.length -1];
+  array.splice(-1);
+  return lastElement;
+}
+// myPopFunction(["fire", "water", "earth", "air"]);
 
 /**
  * Determine whether an array includes a specific value within its entries. Do not use the includes method.
