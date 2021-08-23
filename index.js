@@ -5,12 +5,22 @@
  * @returns {number} the new length of the array.
  */
 
-function myPushFunction(array, element) {
-  array[array.length] = element;
+function myPushFunction(array, ...newElements) {
+  if (newElements.length === 1) {
+    array[array.length] = newElements[0];
+  } else {
+    const newArrLength = array.length + newElements.length;
+    const oldArrLength = array.length;
+
+    for (let i = array.length; i < newArrLength; i++) {
+      //everytime add new element with respect to current index position we're working with
+      array[i] = newElements[i - oldArrLength];
+    }
+  }
   return array.length;
 }
 
-// console.log(myPushFunction([1, 2, 3], 4));
+console.log(myPushFunction([1, 2, 3], 4, 5, 6));
 
 /**
  * Removes the last element of the array and returns the removed element or undefined if the array is empty. Do not use the pop method.
@@ -69,15 +79,16 @@ function myIndexOfFunction(array, searchElement, fromIndex = 0) {
       return i;
     }
   }
-
   return -1;
 }
 
-// const array1 = ["fire", "water", "earth", "air"];
-// console.log(myIndexOfFunction(array1, "air", -2));
+const array1 = ["fire", "water", "earth", "air"];
+myIndexOfFunction(array1, "air", -2);
+// const expected1 = 3;
 
 // const array2 = [1, 2, 3, 4, 5];
 // console.log(myIndexOfFunction(array2, 2, -2));
+// const expected2 = -1;
 
 /**
  * Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified. Do not use the slice method.
@@ -206,7 +217,7 @@ function myUnshiftFunction(array, ...newElements) {
 }
 
 const numArr = [1, 2, 3, 4, 5];
-console.log(myUnshiftFunction(numArr, 6, 7, 8));
+// console.log(myUnshiftFunction(numArr, 6, 7, 8));
 // expect(numArr).toStrictEqual([6, 7, 8, 1, 2, 3, 4, 5]);
 
 // const array = ["module", "one", "is", "finally", "over"];
