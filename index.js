@@ -54,7 +54,7 @@ function myIndexOfFunction(array, searchElement) {
  * @param {number} [endIdx] - an optional number representing the ending index of the extraction (non-inclusive). The endIdx can be negative.
  * @returns {Array[*]} returns a new array containing the extracted elements.
  */
-function mySliceFunction(array, [startIdx], [endIdx]) {
+function mySliceFunction(array, startIdx, endIdx) {
 
 }
 
@@ -64,7 +64,7 @@ function mySliceFunction(array, [startIdx], [endIdx]) {
  * @param {string} [separator] - an optional string to separate each pair of adjacent elements of the array. If no separator is specific the default separator should be a comma (",")
  * @returns {string} returns a new array containing the extracted elements
  */
-function myJoinFunction(array, [separator]) {
+function myJoinFunction(array, separator) {
 
 }
 
@@ -84,7 +84,7 @@ function myReverseFunction(array) {
  * @returns {number} returns the new length of the array.
  */
 function myUnshiftFunction(array, newElement) {
-  
+
 }
 
 
