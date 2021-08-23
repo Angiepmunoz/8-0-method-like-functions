@@ -10,10 +10,6 @@ function myPushFunction(arr) {
     count++
     //count is currently a running length counter for the array
   }
-  let argLen = 0
-  for (let a of arguments){//same as above for the multiple arguments
-    argLen++
-  }
   for (let arg of arguments){
     if (arg === arr){//to ignore the first argument with the array
 
