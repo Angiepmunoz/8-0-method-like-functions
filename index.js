@@ -65,10 +65,13 @@ return - 1;
  * @param {number} [endIdx] - an optional number representing the ending index of the extraction (non-inclusive). The endIdx can be negative.
  * @returns {Array[*]} returns a new array containing the extracted elements.
  */
-function mySliceFunction(array, startIdx, endIdx) {
- for (let i = startIdx; i < array[endIdx]; i++) {
-   
+function mySliceFunction(array, startIdx = 0, endIdx = array.length) {
+  let arr = [];
+ for (let i = startIdx; i < endIdx; i++) {
+  let element = array[i]
+  myPushFunction(arr, element)
  }
+ return arr
 }
 
 /**
@@ -77,7 +80,9 @@ function mySliceFunction(array, startIdx, endIdx) {
  * @param {string} [separator] - an optional string to separate each pair of adjacent elements of the array. If no separator is specific the default separator should be a comma (",")
  * @returns {string} returns a new array containing the extracted elements
  */
-function myJoinFunction() {}
+function myJoinFunction(array, separator) {
+  
+}
 
 /**
  * Returns an array with the elements reverse. The first array element becomes the last, and the last array element becomes the first. Do not use the reverse method.
