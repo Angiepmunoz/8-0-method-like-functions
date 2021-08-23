@@ -135,12 +135,17 @@ function myJoinFunction(array, seperator = ',') {
  * @returns {Array[*]} returns the array with the elements reversed.
  */
 function myReverseFunction(array) {
-  newArr = []
-  for (let i =array.length -1; i >=0; i--){
-    myPushFunction(newArr, array[i])
-  }
-  for (let i =0; i< newArr.length; i++){
-    array[i] = newArr[i]
+  // newArr = []
+  // for (let i =array.length -1; i >=0; i--){
+  //   myPushFunction(newArr, array[i])
+  // }
+  // for (let i =0; i< newArr.length; i++){
+  //   array[i] = newArr[i]
+  // }
+  newArr = mySliceFunction(array)
+  for (let i =newArr.length-1; i >= 0; i--){
+    j = array.length-1 -i
+    array[j] = newArr[i]
   }
   return array
 }
