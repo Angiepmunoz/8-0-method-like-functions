@@ -1,19 +1,21 @@
 /**
  * Appends an element or multiple elements to the end of an array. Do not use the push method.
  * @param {Array[]} array - an array of with any kind of elements.
- * @param (*) element - an element of any kind.
+ * @param {*} element - an element of any kind.
  * @returns {number} the new length of the array.
  */
 
-function myPushFunction(array, element) {
+function myPushFunction(array, element) { //spread operator, ...elements) {
+// for (let element of elements) {
 array[array.length] = element
+  // }
   return array.length
 }
 
 /**
  * Removes the last element of the array and returns the removed element or undefined if the array is empty. Do not use the pop method.
  * @param {Array[]} array - an array of with any kind of elements.
- * @param (*) element - an element of any kind.
+ * @param {*} element - an element of any kind.
  * @returns {number} the new length of the array .
  */
 function myPopFunction(array, element) {
@@ -32,14 +34,13 @@ let last = array[array.length - 1]
  * @returns {boolean} returns true or false if the searchElement is found in the array.
  */
 function myIncludesFunction(array, searchElement) {
-let count = array.length;
-  for(let i = 0; i < count; i++) {
-    if (array[i] === searchElement) {
-      return true
-    }
+for (let i = 0; i < array.length; i++) {
+  if (array[i] === searchElement) {
+    return true
   }
-    return false
-  }
+}
+  return false
+}
 
 
 /**
@@ -54,7 +55,7 @@ for (let i = 0; i < array.length; i++){
      return i
     }
   }
-    return - 1;
+    return - 1
 }
 
 /**
@@ -99,13 +100,13 @@ let result = '';
  * @returns {Array[*]} returns the array with the elements reversed.
  */
 function myReverseFunction(array) {
-  arr = [];
+let arr = [];
   for (let i = array.length - 1; i >= 0; i--) {
     myPushFunction(arr, array[i])
   }
-  for (let i = 0; i < arr.length; i++) {
-    array[i] = arr[i]
-  }
+for (let i = 0; i < arr.length; i++) {
+  array[i] = arr[i]
+}
   return array
 }
 
@@ -116,14 +117,14 @@ function myReverseFunction(array) {
  * @returns {number} returns the new length of the array.
  */
 function myUnshiftFunction(array, newElement) {
-  for (let i = array.length; i >= 0; i--) {
-    if (i === 0) {
-      array[i] = newElement;
-    } else {
-      array[i] = array[i - 1];
-    }
+for (let i = array.length; i >= 0; i--) {
+  if (i === 0) {
+    array[i] = newElement
+  } else {
+    array[i] = array[i - 1]
   }
-return array.length;
+}
+  return array.length
 }
 
 
