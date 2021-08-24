@@ -184,6 +184,8 @@ function myReverseFunction(array) {
  * @returns {number} returns the new length of the array.
  */
 function myUnshiftFunction(array, newElement) {
+  array.splice(0, 0, newElement);
+
   return array.length;
 }
 module.exports = {
