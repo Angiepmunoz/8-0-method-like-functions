@@ -82,6 +82,38 @@
   //  ○ skipped returns a new array starting at the given index and up to the last element if the given end index is more than the length of the array
   
   function mySliceFunction(array, startIdx, endIdx) {
+    let newArray = [];
+
+ 
+    if (startIdx === undefined && endIdx === undefined) {
+      for (let i = 0; i < array.length; i++) {
+        newArray.push(array[i]);
+      }
+    } else if (endIdx === undefined) {
+      for (let i = startIdx; i < array.length; i++) {
+        newArray.push(array[i]);
+      }
+    } else {
+      for (let i = startIdx; i < endIdx; i++) {
+        newArray.push(array[i]);
+      }
+    }
+    return newArray;
+  
+    // if(startIdx === undefined || endIdx === undefined){
+  
+    //       newArr = array;
+  
+    // }
+    // if (endIdx === undefined || endIdx > array.length) {
+    //   endIdx = array.length;
+    // }
+  
+    // for (let i = startIdx; i < endIdx; i++) {
+    //   newArray.push(array[i]);
+    // }
+  
+    // return newArray;
     
   }
   
