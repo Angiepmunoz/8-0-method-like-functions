@@ -149,7 +149,32 @@ function myJoinFunction(array, separator) {
  * @param {Array[*]} array - an array of with any kind of elements
  * @returns {Array[*]} returns the array with the elements reversed.
  */
-function myReverseFunction(array) {}
+function myReverseFunction(array) {
+  //Soln 1
+  // let i = 0;
+  // while (i < array.length - 1) {
+  //   array.splice(i, 0, array.pop());
+  //   i++;
+  // }
+  // return array;
+
+  //Soln 2
+  //Temporal storage
+  let temp;
+  //first index
+  let i = 0;
+  //last index
+  let end = array.length - 1;
+  while (i < end) {
+    temp = array[i];
+    array[i] = array[end];
+    array[end] = temp;
+    i++;
+    end--;
+  }
+
+  return array;
+}
 
 /**
  * Returns an array with one or more elements added to the front of the array followed by
