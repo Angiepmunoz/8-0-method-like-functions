@@ -116,8 +116,16 @@ function myReverseFunction(array) {
  * @returns {number} returns the new length of the array.
  */
 function myUnshiftFunction(array, newElement) {
-
+  for (let i = array.length; i >= 0; i--) {
+    if (i === 0) {
+      array[i] = newElement;
+    } else {
+      array[i] = array[i - 1];
+    }
+  }
+return array.length;
 }
+
 
 
 
