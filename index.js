@@ -16,7 +16,8 @@ function myPushFunction(array, element) {
  * @returns {number} the new length of the array .
  */
 function myPopFunction(array) {
-
+  if (array.length === 0) {
+    return undefined;
 }
 
 /**
