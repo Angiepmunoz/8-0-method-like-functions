@@ -27,7 +27,12 @@ function myPopFunction(array) {
  * @returns {boolean} returns true or false if the searchElement is found in the array.
  */
 function myIncludesFunction(array, searchElement) {
-
+  for (const arr of array) {
+    if (arr === searchElement) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
