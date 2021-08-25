@@ -49,8 +49,20 @@ function myIncludesFunction(array, searchElement) {
  * @returns {number} returns the index at with the searchElement is found or -1.
  */
 function myIndexOfFunction(array, searchElement) {
+  // iterate over the array to find where `searchElement` is/if it exists
+  if (!array.includes(searchElement)) {
+    return -1;
+  }
 
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === searchElement) {
+      // return index position only
+      return i;
+    } 
+  }
 }
+// console.log(myIndexOfFunction(["fire", "water", "earth", "air"], "love")) // -1
+// console.log(myIndexOfFunction(["fire", "water", "earth", "air"], "earth")); // 2
 
 /**
  * Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified. Do not use the slice method.
@@ -60,8 +72,36 @@ function myIndexOfFunction(array, searchElement) {
  * @returns {Array[*]} returns a new array containing the extracted elements.
  */
 function mySliceFunction(array, startIdx, endIdx) {
+  // guard clause - if no `startIdx` or `endIdx`, return the array
+  if (!startIdx || !endIdx) {
+    return array;
+  }
 
+  let newArray = [];
+  
+  // iterate through array for index positions
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > startIdx) {
+      newArray.push(array[i])
+      if (array[i] > endIdx -1) {
+        break;
+      }
+    }
+  }
+  return newArray;
 }
+// console.log(mySliceFunction(["fire", "water", "earth", "air"], 2, 3)) // ["earth"];
+// console.log(mySliceFunction([1, 2, 3, 4, 5], 1, 4)); // [2, 3, 4];
+// console.log(mySliceFunction([1, 2, [3, 4, 5]], 1, 2)) // [2]
+
+
+    // if (array[i] === startIdx) {
+      // removes first element from an array
+      // array.shift();
+          // if (array[i] === endIdx) {
+    //   // removes last element from an array
+    //   array.pop();
+    // }
 
 /**
  * Creates and returns a new string by concatenating all of the elements in an array, separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator. Do not use the join method.
@@ -79,8 +119,26 @@ function myJoinFunction(array, separator) {
  * @returns {Array[*]} returns the array with the elements reversed.
  */
 function myReverseFunction(array) {
-
+  let reversed = []
+  for (let i = array.length -1; i >= 0; i--) {
+    reversed.push(array[i]);
+  }
+  // console.log(reversed)
+  return reversed;
 }
+// console.log(myReverseFunction(["module", "one", "is", "finally", "over"]))
+
+
+// // this works, but I don't understand it:
+// function myReverseFunction(array) {
+//   for (let i = 0; i <= Math.floor((array.length - 1) / 2); i++) {
+//     let el = array[i];
+//     array[i] = array[array.length -1 -i];
+//     array[array.length -1 -i] = el;
+//   }
+//   return array;
+// }
+
 
 /**
  * Returns an array with one or more elements added to the front of the array followed by the original elements. Do not use the unshift method.
@@ -88,9 +146,15 @@ function myReverseFunction(array) {
  * @param {*} newElement - an element of any type to add to the front of the array.
  * @returns {number} returns the new length of the array.
  */
-function myUnshiftFunction(array, newElement) {
-
+function myUnshiftFunction(array, ...newElement) {
+  array.reverse();
+  newElement.reverse();
+  array.push(...newElement);
+  array.reverse();
+  return array.length;
 }
+// console.log(myUnshiftFunction(["module", "one", "is", "finally", "over"], "yas"));
+// console.log(myUnshiftFunction([1, 2, 3, 4, 5], 6, 7, 8)); // [6, 7, 8, 1, 2, 3, 4, 5]
 
 
 
