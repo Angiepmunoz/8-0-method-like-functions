@@ -71,13 +71,14 @@ function myIndexOfFunction(array, searchElement) {
  * @param {number} [endIdx] - an optional number representing the ending index of the extraction (non-inclusive). The endIdx can be negative.
  * @returns {Array[*]} returns a new array containing the extracted elements.
  */
-function mySliceFunction(array, startIdx, endIdx) {
+function mySliceFunction(array, startIdx, endIdx) {  
+  let newArray = [];
+  array.forEach(element => newArray.push(element)); // makes a copy of original array
+
   // guard clause - if no `startIdx` or `endIdx`, return the array
   if (!startIdx || !endIdx) {
-    return array;
+    return newArray;
   }
-
-  let newArray = [];
   
   // iterate through array for index positions
   for (let i = 0; i < array.length; i++) {
@@ -88,11 +89,20 @@ function mySliceFunction(array, startIdx, endIdx) {
       }
     }
   }
+  // console.log("sup", newArray); // sup [ 'fire', 'water', 'earth', 'air' ]
   return newArray;
 }
-// console.log(mySliceFunction(["fire", "water", "earth", "air"], 2, 3)) // ["earth"];
+console.log(mySliceFunction(["fire", "water", "earth", "air"], 2, 3)) // ["earth"];
 // console.log(mySliceFunction([1, 2, 3, 4, 5], 1, 4)); // [2, 3, 4];
 // console.log(mySliceFunction([1, 2, [3, 4, 5]], 1, 2)) // [2]
+
+  // if startIdx is undefined, start at 0; if 
+  // if (startIdx === undefined) {
+  //   startIdx = 0;
+  // }
+  // if (startIdx > endIdx) {
+  //   return []; // empty array
+  // }
 
 
     // if (array[i] === startIdx) {
@@ -102,6 +112,9 @@ function mySliceFunction(array, startIdx, endIdx) {
     //   // removes last element from an array
     //   array.pop();
     // }
+
+// references:
+// @forEach - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
 /**
  * Creates and returns a new string by concatenating all of the elements in an array, separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator. Do not use the join method.
