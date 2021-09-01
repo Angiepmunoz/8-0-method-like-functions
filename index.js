@@ -71,28 +71,27 @@ function myIndexOfFunction(array, searchElement) {
  * @param {number} [endIdx] - an optional number representing the ending index of the extraction (non-inclusive). The endIdx can be negative.
  * @returns {Array[*]} returns a new array containing the extracted elements.
  */
-function mySliceFunction(array, startIdx, endIdx) {  
+function mySliceFunction(array, startIdx = 0, endIdx = array.length) {  
   let newArray = [];
-  array.forEach(element => newArray.push(element)); // makes a copy of original array
+  // array.forEach(element => newArray.push(element)); // makes a copy of original array
 
   // guard clause - if no `startIdx` or `endIdx`, return the array
-  if (!startIdx || !endIdx) {
-    return newArray;
-  }
+  // if (!startIdx || !endIdx) {
+  //   return newArray;
+  // }
   
   // iterate through array for index positions
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] > startIdx) {
-      newArray.push(array[i])
-      if (array[i] > endIdx -1) {
-        break;
-      }
+  // the loop will check each index all the way until array.length is the last one
+  for (let i = startIdx; i < endIdx; i++) {
+    let container = array[i];
+      newArray.push(container);
     }
+    return newArray;
   }
+  // console.log("next-array", container); // test
   // console.log("sup", newArray); // sup [ 'fire', 'water', 'earth', 'air' ]
-  return newArray;
-}
-console.log(mySliceFunction(["fire", "water", "earth", "air"], 2, 3)) // ["earth"];
+// }
+// console.log(mySliceFunction(["fire", "water", "earth", "air"], 2, 3)) // ["earth"];
 // console.log(mySliceFunction([1, 2, 3, 4, 5], 1, 4)); // [2, 3, 4];
 // console.log(mySliceFunction([1, 2, [3, 4, 5]], 1, 2)) // [2]
 
@@ -123,8 +122,20 @@ console.log(mySliceFunction(["fire", "water", "earth", "air"], 2, 3)) // ["earth
  * @returns {string} returns a new array containing the extracted elements
  */
 function myJoinFunction(array, separator) {
+  let joined = ""; // string
 
+  for (let i = 0; i < array.length; i++) {
+    joined += array[i];
+    if (i !== array.length -1 && separator === undefined) {
+      joined += ",";
+    }
+    if (i !== array.length -1 && separator) {
+      joined += separator;
+    }
+  }
+  return joined;
 }
+// console.log(myJoinFunction(["I've", "got", "to", "celebrate", "you", "baby"])); // "I've,got,to,celebrate,you,baby";
 
 /**
  * Returns an array with the elements reverse. The first array element becomes the last, and the last array element becomes the first. Do not use the reverse method.
@@ -133,11 +144,17 @@ function myJoinFunction(array, separator) {
  */
 function myReverseFunction(array) {
   let reversed = []
+  // this reverses the words in the array
   for (let i = array.length -1; i >= 0; i--) {
-    reversed.push(array[i]);
+    reversed.push(array[i]); // [ 'over', 'finally', 'is', 'one', 'module' ]
   }
-  // console.log(reversed)
-  return reversed;
+  // this uses the reversed array, but needs to mutate the original array
+  // reassigning the index of reversed array, and index of original array
+  for (let i = 0; i < reversed.length; i++) {
+    array[i] = reversed[i]; // mutates here
+  }
+  // console.log(array)
+  return array;
 }
 // console.log(myReverseFunction(["module", "one", "is", "finally", "over"]))
 
