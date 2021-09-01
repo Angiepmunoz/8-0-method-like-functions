@@ -7,7 +7,7 @@
 
 function myPushFunction(array, newElement) {
   array[array.length] = newElement
-  console.log(array);
+  // console.log(array);
   return array.length;
 }
 // console.log(myPushFunction(["module", "one", "is", "finally", "over"], "yas"))
